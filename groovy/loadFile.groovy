@@ -1,7 +1,9 @@
 #!/usr/bin/env groovy
 
 def call(fileSize, fileCount){
-
+  stage('Checkout') {
+    checkout scm
+  }
   stage('Create Files') {
       script {
         def buildImage = docker.build("v-ops-build:${env.BUILD_ID}", "-f config/Dockerfile config")
