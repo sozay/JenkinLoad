@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-def workloadPipeline(fileSize, fileCount){
+def create(fileSize, fileCount){
  
   stage('Create Files') {
       script {
