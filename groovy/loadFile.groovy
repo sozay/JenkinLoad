@@ -4,9 +4,13 @@ def create(fileSize, fileCount){
  
   stage('Create Files') {
       script {
-        writeFile file: 'groovy1.txt', text: 'Working with files the Groovy way is easy.'
-        sh 'ls -l groovy1.txt'
-        sh 'cat groovy1.txt'
+       1.upto(fileCount, {
+        writeFile file: 'groovy${it}.txt', text: 'Working with files the Groovy way is easy. ${it}'
+        sh 'ls -l groovy${it}.txt'
+        sh 'cat groovy{it}.txt'
+        println "Number ${it}"
+       })
+       
       }
 
   }
